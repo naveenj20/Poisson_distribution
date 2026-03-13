@@ -66,7 +66,7 @@ print("Chi-square value =", round(chi,3))
 
 # Output : 
 
-
+![Screenshots](ss_2.png)
 
 # Results
 
