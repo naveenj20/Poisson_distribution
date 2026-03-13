@@ -30,7 +30,39 @@ The Poisson distribution is the discrete probability distribution of the number 
 
 # Program :
 
- 
+```
+# Developed by : NAVEEN JAISANKER
+# Register No : 212224110039
+
+import numpy as np
+import math
+
+# Input arrival data
+L = [int(i) for i in input("Enter arrivals per minute: ").split()]
+
+N = len(L)
+mean = np.mean(L)        # λ for Poisson distribution
+
+M = max(L)
+x = list(range(M+1))
+
+# Observed frequency
+f = [L.count(i) for i in x]
+
+# Expected frequency using Poisson formula
+E = []
+for i in x:
+    p = (math.exp(-mean) * mean**i) / math.factorial(i)
+    E.append(N * p)
+
+# Chi-square calculation
+chi = sum((f[i] - E[i])**2 / E[i] for i in range(len(x)) if E[i] != 0)
+
+print("Mean (λ) =", round(mean,3))
+print("Observed frequencies =", f)
+print("Expected frequencies =", [round(i,3) for i in E])
+print("Chi-square value =", round(chi,3))
+```
 
 # Output : 
 
